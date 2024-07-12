@@ -6,15 +6,23 @@ public class Solution {
         if(n== 0){
             return true;
         }
-        if(flowerbed.length <= 2){
-            if (flowerbed[0] == 1){
+        if(flowerbed.length == 0){
+            return false;
+        }
+        if(flowerbed.length == 1 && flowerbed[0] == 0){
+            return true;
+        }else if (flowerbed.length == 1){
+            return false;
+        }
+
+        if (flowerbed.length == 2){
+            if(flowerbed[0] == 1 || flowerbed[1] == 1 || n == flowerbed.length){
                 return false;
-            }else if(n == flowerbed.length){
+            }else {
                 return true;
-            }else{
-                return false;
             }
         }
+
         //Catch the starting case when [0,0,1]
         if(flowerbed[prev] == 0 && flowerbed[cur] == 0){
             flowerbed[prev] = 1;
